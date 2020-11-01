@@ -152,7 +152,7 @@ then
   then
 
     # get package id
-    CMD="sfdx force:package:list --json | jq '.result[] | select((.Name) == \"$SFDX_PACKAGE_NAME\")' | jq -r .Id"
+    CMD="sfdx force:package:list --json -v $DEV_HUB_USERNAME | jq '.result[] | select((.Name) == \"$SFDX_PACKAGE_NAME\")' | jq -r .Id"
     debug "CMD: $CMD"
     SFDX_PACKAGE_ID=$(eval $CMD)
     debug "SFDX_PACKAGE_ID: $SFDX_PACKAGE_ID"
